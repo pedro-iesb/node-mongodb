@@ -1,4 +1,4 @@
-const { model } = require("mongoose")
+const { json } = require("express")
 const Produto = require("../models/Produto")
 
 const ProdutoController = {

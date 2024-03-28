@@ -6,7 +6,7 @@ const router = express.Router()
 router.get('/', function(req, res){
     res.json({})
 })
-
+// Produtos
 router.get('/produtos', (req, res) => ProdutoController.getAll(req, res))
 router.post('/produtos', (req, res) => ProdutoController.create(req, res))
 router.get('/produtos/:id', (req, res) => ProdutoController.get(req, res))
