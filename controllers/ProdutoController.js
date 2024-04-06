@@ -3,7 +3,18 @@ const Produto = require("../models/Produto")
 
 const ProdutoController = {
     getAll: async (req, res) => {
-        res.json( await Produto.find())
+        
+        const filtros = []
+        const campos = Object.keys(Produto.schema.paths)
+
+        for(let campo in req.query){
+            if(campos.includes(campo)){
+                filtros[campo] = {$regex: new RegExp(req.query[campo], 'i')}
+            }
+        }
+
+        // const tipo = req.query.tipo
+        // res.json( await Produto.find({tipo: {$regex: new RegExp(tipo, 'i')}}))
     },
 
     get: async (req, res) => {
@@ -13,7 +24,7 @@ const ProdutoController = {
         } catch (error) {
             res.status(404).json({error: "Este produto não existe"})
         }
-        
+          
     },
 
     create: async (req, res) => {
