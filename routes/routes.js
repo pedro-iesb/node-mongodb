@@ -4,6 +4,12 @@ const ProdutoController = require('../controllers/ProdutoController')
 const FuncionarioController = require('../controllers/FuncionarioController')
 const ComandaController = require('../controllers/ComandaController')
 const ClienteController = require('../controllers/ClienteController')
+const CargoController = require('../controllers/CargoController')
+const Forma_PagamentoController = require('../controllers/Forma_PagamentoController')
+const IngredienteController = require('../controllers/IngredienteController')
+const Produto_ComandaController = require('../controllers/Produto_ComandaController')
+const Produto_IngredienteController = require('../controllers/Produto_IngredienteController')
+const TipoController = require('../controllers/TipoController')
 const router = express.Router()
 
 router.get('/', function(req, res){
@@ -37,5 +43,47 @@ router.post('/cliente', (req, res) => ClienteController.create(req, res))
 router.get('/cliente/:id', (req, res) => ClienteController.get(req, res))
 router.put('/cliente/:id', (req, res) => ClienteController.update(req, res))
 router.delete('/cliente/:id', (req, res) => ClienteController.delete(req, res))
+
+// Cargo
+router.get('/cargo', (req, res) => CargoController.getAll(req, res))
+router.post('/cargo', (req, res) => CargoController.create(req, res))
+router.get('/cargo/:id', (req, res) => CargoController.get(req, res))
+router.put('/cargo/:id', (req, res) => CargoController.update(req, res))
+router.delete('/cargo/:id', (req, res) => CargoController.delete(req, res))
+
+// Forma Pagamento
+router.get('/forma_pagamento', (req, res) => Forma_PagamentoController.getAll(req, res))
+router.post('/forma_pagamento', (req, res) => Forma_PagamentoController.create(req, res))
+router.get('/forma_pagamento/:id', (req, res) => Forma_PagamentoController.get(req, res))
+router.put('/forma_pagamento/:id', (req, res) => Forma_PagamentoController.update(req, res))
+router.delete('/forma_pagamento/:id', (req, res) => Forma_PagamentoController.delete(req, res))
+
+// Ingrediente
+router.get('/ingrediente', (req, res) => IngredienteController.getAll(req, res))
+router.post('/ingrediente', (req, res) => IngredienteController.create(req, res))
+router.get('/ingrediente/:id', (req, res) => IngredienteController.get(req, res))
+router.put('/ingrediente/:id', (req, res) => IngredienteController.update(req, res))
+router.delete('/ingrediente/:id', (req, res) => IngredienteController.delete(req, res))
+
+// Produto Comanda 
+router.get('/produto_comanda', (req, res) => Produto_ComandaController.getAll(req, res))
+router.post('/produto_comanda', (req, res) => Produto_ComandaController.create(req, res))
+router.get('/produto_comanda/:id', (req, res) => Produto_ComandaController.get(req, res))
+router.put('/produto_comanda/:id', (req, res) => Produto_ComandaController.update(req, res))
+router.delete('/produto_comanda/:id', (req, res) => Produto_ComandaController.delete(req, res))
+
+// Produto Ingrediente 
+router.get('/produto_ingrediente', (req, res) => Produto_IngredienteController.getAll(req, res))
+router.post('/produto_ingrediente', (req, res) => Produto_IngredienteController.create(req, res))
+router.get('/produto_ingrediente/:id', (req, res) => Produto_IngredienteController.get(req, res))
+router.put('/produto_ingrediente/:id', (req, res) => Produto_IngredienteController.update(req, res))
+router.delete('/produto_ingrediente/:id', (req, res) => Produto_IngredienteController.delete(req, res))
+
+// Tipo
+router.get('/tipo', (req, res) => TipoController.getAll(req, res))
+router.post('/tipo', (req, res) => TipoController.create(req, res))
+router.get('/tipo/:id', (req, res) => TipoController.get(req, res))
+router.put('/tipo/:id', (req, res) => TipoController.update(req, res))
+router.delete('/tipo/:id', (req, res) => TipoController.delete(req, res))
 
 module.exports = router
